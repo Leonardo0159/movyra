@@ -64,7 +64,7 @@ export function MovyraLogo({ className, variant = "full", size = "md" }: MovyraL
   if (variant === "wordmark") {
     return (
       <svg
-        viewBox="0 0 320 40"
+        viewBox="0 0 145 40"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={cn(sizeClasses[size], className)}
@@ -80,34 +80,10 @@ export function MovyraLogo({ className, variant = "full", size = "md" }: MovyraL
         <path d="M82 14L88 24L94 14" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         <path d="M88 24L86 32" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" fill="none" />
         {/* r */}
-        <path d="M102 32V14" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-        <path d="M102 18C106 18 108 20 110 22" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+        <path d="M102 32V14H106C110 14 112 16 112 20" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         {/* a */}
-        <path d="M118 32V22C118 18 120 16 124 16C128 16 130 18 130 22V32" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <path d="M118 26H130" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" />
-
-        {/* Film strip accent line */}
-        <line x1="148" y1="20" x2="312" y2="20" className="stroke-current opacity-20" strokeWidth="1" />
-        <rect x="152" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="160" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="168" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="176" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="184" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="192" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="200" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="208" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="216" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="224" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="232" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="240" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="248" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="256" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="264" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="272" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="280" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="288" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="296" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
-        <rect x="304" y="17" width="3" height="6" rx="0.5" className="fill-current opacity-30" />
+        <path d="M120 32V22C120 18 122 16 126 16C130 16 132 18 132 22V32" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M120 26H132" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" />
       </svg>
     );
   }
