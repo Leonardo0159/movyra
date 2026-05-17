@@ -1,12 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { AvatarDisplay } from "@/components/avatar-display";
 import { AvatarPicker } from "@/components/avatar-picker";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -15,6 +13,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import Link from "next/link";
+import { ChevronLeft, Plus, Pencil, Trash2 } from "lucide-react";
 
 interface Profile {
   id: string;
@@ -35,7 +35,6 @@ export default function ManageProfilesPage() {
   const [selectedProfile, setSelectedProfile] = useState<Profile | null>(null);
   const [editName, setEditName] = useState("");
   const [editAvatarKey, setEditAvatarKey] = useState<string | null>(null);
-  const router = useRouter();
 
   const fetchProfiles = () => {
     fetch("/api/profiles")
@@ -136,87 +135,97 @@ export default function ManageProfilesPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <p>Loading...</p>
+      <div className="flex min-h-screen items-center justify-center bg-[oklch(0.1_0.005_45)]">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-amber/30 border-t-amber" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background px-4 py-8">
-      <div className="max-w-2xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold">Manage Profiles</h1>
+    <div className="relative min-h-screen bg-[oklch(0.1_0.005_45)] px-4 py-10 overflow-hidden">
+      <div className="absolute inset-0 film-grain" />
+
+      <div className="relative z-10 mx-auto max-w-2xl">
+        <div className="mb-8 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Link
+              href="/select-profile"
+              className="rounded-sm p-2 text-zinc-400 transition-colors hover:text-white"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Link>
+            <h1 className="font-heading text-2xl uppercase tracking-wider text-white">
+              Manage Profiles
+            </h1>
+          </div>
           <Button
             onClick={handleAddProfile}
             disabled={profiles.length >= MAX_PROFILES}
+            className="bg-amber text-[oklch(0.1_0.005_45)] hover:bg-amber/90 font-heading uppercase tracking-wider"
           >
-            Add Profile
+            <Plus className="mr-1.5 h-4 w-4" />
+            Add
           </Button>
         </div>
 
         {error && (
-          <p className="text-destructive mb-4" role="alert">
+          <p className="mb-4 text-sm text-destructive" role="alert">
             {error}
           </p>
         )}
 
-        <div className="space-y-4">
+        <div className="space-y-2">
           {profiles.map((profile) => (
-            <Card key={profile.id}>
-              <CardContent className="flex items-center justify-between p-4">
-                <div className="flex items-center gap-4">
+            <div
+              key={profile.id}
+              className="flex items-center justify-between rounded-sm border border-zinc-800/50 bg-zinc-900/30 p-4 backdrop-blur-sm"
+            >
+              <div className="flex items-center gap-4">
+                <div className="overflow-hidden rounded-sm ring-1 ring-zinc-700/50">
                   <AvatarDisplay
                     avatarKey={profile.avatarKey}
                     avatarUrl={profile.avatarUrl}
                     name={profile.name}
                     size="md"
                   />
-                  <div>
-                    <p className="font-medium">{profile.name}</p>
-                    {profile.isActive && (
-                      <p className="text-sm text-muted-foreground">Active</p>
-                    )}
-                  </div>
                 </div>
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleEditProfile(profile)}
-                  >
-                    Edit
-                  </Button>
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    onClick={() => handleDeleteClick(profile)}
-                    disabled={profiles.length <= 1}
-                  >
-                    Delete
-                  </Button>
+                <div>
+                  <p className="font-medium text-zinc-200">{profile.name}</p>
+                  {profile.isActive && (
+                    <p className="text-xs text-amber">Active</p>
+                  )}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="border-zinc-700/50 text-zinc-400 hover:text-white"
+                  onClick={() => handleEditProfile(profile)}
+                >
+                  <Pencil className="h-3.5 w-3.5" />
+                </Button>
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={() => handleDeleteClick(profile)}
+                  disabled={profiles.length <= 1}
+                >
+                  <Trash2 className="h-3.5 w-3.5" />
+                </Button>
+              </div>
+            </div>
           ))}
         </div>
-
-        <Button
-          variant="ghost"
-          className="mt-6"
-          onClick={() => router.push("/select-profile")}
-        >
-          Back to profile selection
-        </Button>
       </div>
 
       <Dialog open={editDialogOpen} onOpenChange={setEditDialogOpen}>
-        <DialogContent>
+        <DialogContent className="border-zinc-800/50 bg-zinc-900/95 backdrop-blur-md">
           <DialogHeader>
-            <DialogTitle>
+            <DialogTitle className="font-heading text-lg uppercase tracking-wider">
               {selectedProfile ? "Edit Profile" : "Add Profile"}
             </DialogTitle>
-            <DialogDescription>
+            <DialogDescription className="text-zinc-500">
               {selectedProfile
                 ? "Update the profile name and avatar"
                 : "Create a new profile with a name and avatar"}
@@ -224,7 +233,7 @@ export default function ManageProfilesPage() {
           </DialogHeader>
           <div className="space-y-4 py-4">
             <div>
-              <label htmlFor="profile-name" className="text-sm font-medium">
+              <label htmlFor="profile-name" className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-zinc-400">
                 Profile Name
               </label>
               <Input
@@ -233,10 +242,11 @@ export default function ManageProfilesPage() {
                 onChange={(e) => setEditName(e.target.value)}
                 placeholder="Enter profile name"
                 maxLength={30}
+                className="border-zinc-700/50 bg-zinc-800/50 text-white placeholder:text-zinc-600 focus:border-amber/40 focus:ring-amber/20"
               />
             </div>
             <div>
-              <label className="text-sm font-medium">Avatar</label>
+              <label className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-zinc-400">Avatar</label>
               <AvatarPicker
                 selectedKey={editAvatarKey}
                 onSelect={setEditAvatarKey}
@@ -244,24 +254,24 @@ export default function ManageProfilesPage() {
             </div>
           </div>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setEditDialogOpen(false)}>
+            <Button variant="outline" className="border-zinc-700/50 text-zinc-400" onClick={() => setEditDialogOpen(false)}>
               Cancel
             </Button>
-            <Button onClick={handleSaveProfile}>Save</Button>
+            <Button className="bg-amber text-[oklch(0.1_0.005_45)] hover:bg-amber/90" onClick={handleSaveProfile}>Save</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
 
       <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
-        <DialogContent>
+        <DialogContent className="border-zinc-800/50 bg-zinc-900/95 backdrop-blur-md">
           <DialogHeader>
-            <DialogTitle>Delete Profile</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="font-heading text-lg uppercase tracking-wider">Delete Profile</DialogTitle>
+            <DialogDescription className="text-zinc-500">
               Are you sure you want to delete &quot;{selectedProfile?.name}&quot;? This action cannot be undone.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setDeleteDialogOpen(false)}>
+            <Button variant="outline" className="border-zinc-700/50 text-zinc-400" onClick={() => setDeleteDialogOpen(false)}>
               Cancel
             </Button>
             <Button variant="destructive" onClick={handleDeleteProfile}>

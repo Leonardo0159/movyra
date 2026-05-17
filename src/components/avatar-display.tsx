@@ -4,15 +4,15 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const AVATAR_COLORS = [
-  "bg-blue-500",
-  "bg-green-500",
-  "bg-purple-500",
-  "bg-orange-500",
-  "bg-pink-500",
-  "bg-teal-500",
+  "bg-amber-600",
+  "bg-emerald-600",
+  "bg-violet-600",
+  "bg-orange-600",
+  "bg-rose-600",
+  "bg-teal-600",
 ];
 
-const AVATAR_ICONS = ["👤", "🎭", "🦊", "🐱", "🦁", "🐼"];
+const AVATAR_ICONS = ["\u{1F464}", "\u{1F3AD}", "\u{1F98A}", "\u{1F431}", "\u{1F981}", "\u{1F43C}"];
 
 interface AvatarDisplayProps {
   avatarKey: string | null;
@@ -37,7 +37,7 @@ export function AvatarDisplay({
 
   if (avatarUrl) {
     return (
-      <div className={cn("relative rounded-lg overflow-hidden", sizeClasses[size], className)} role="img" aria-label={`${name}'s avatar`}>
+      <div className={cn("relative rounded-sm overflow-hidden", sizeClasses[size], className)} role="img" aria-label={`${name}'s avatar`}>
         <Image
           src={avatarUrl}
           alt={`${name}'s avatar`}
@@ -56,7 +56,7 @@ export function AvatarDisplay({
   return (
     <div
       className={cn(
-        "rounded-lg flex items-center justify-center text-white",
+        "rounded-sm flex items-center justify-center text-white",
         AVATAR_COLORS[colorIndex],
         sizeClasses[size],
         className
