@@ -25,6 +25,10 @@ npm run lint     # run ESLint
 - No CI, no pre-commit hooks
 - `.env*` files are gitignored; use standard Next.js env conventions
 
+## Language
+- Always respond in Portuguese.
+- All code-related content must be in English: code, comments, variable names, commit messages, and technical identifiers.
+
 ## Commits
 - When asked to commit, group related changes into logical, atomic commits.
 - Use Conventional Commit prefixes: `feat`, `fix`, `docs`, `chore`, `test`, `style`, `refactor`, `perf`.
