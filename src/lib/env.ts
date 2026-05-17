@@ -9,6 +9,12 @@ const envSchema = z.object({
   SENTRY_DSN: z.string().url().or(z.literal("")).optional(),
   SENTRY_ENVIRONMENT: z.enum(["development", "staging", "production"]).default("development"),
   SENTRY_RELEASE: z.string().optional(),
+  // Cloudflare R2 Storage
+  R2_ACCOUNT_ID: z.string().optional(),
+  R2_ACCESS_KEY_ID: z.string().optional(),
+  R2_SECRET_ACCESS_KEY: z.string().optional(),
+  R2_BUCKET_NAME: z.string().default("movyra-videos"),
+  R2_PUBLIC_URL: z.string().url().optional(),
 });
 
 export function validateEnv() {
