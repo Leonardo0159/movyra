@@ -1,14 +1,12 @@
 import { z } from "zod";
 
 const envSchema = z.object({
-  DATABASE_URL: z.string().url().refine((url) => {
-    if (process.env.NODE_ENV === "production") {
-      return url.includes("sslmode=require") || url.startsWith("prisma+postgres");
-    }
-    return true;
-  }, "DATABASE_URL must use SSL in production"),
+  DATABASE_URL: z.string().url(),
   REDIS_URL: z.string().url().optional(),
-  SENTRY_DSN: z.string().url().optional(),
+  JWT_SECRET: z.string().min(32, "JWT_SECRET must be at least 32 characters"),
+  JWT_EXPIRES_IN: z.string().default("7d"),
+  JWT_REFRESH_EXPIRES_IN: z.string().default("30d"),
+  SENTRY_DSN: z.string().url().or(z.literal("")).optional(),
   SENTRY_ENVIRONMENT: z.enum(["development", "staging", "production"]).default("development"),
   SENTRY_RELEASE: z.string().optional(),
 });

@@ -26,8 +26,10 @@ model User {
 model Profile {
   id        String   @id @default(uuid())
   name      String
-  avatarUrl String?
+  avatarKey String?  // Key for predefined avatar SVG (e.g., "avatar-1" to "avatar-6")
+  avatarUrl String?  // Custom avatar URL (optional)
   userId    String
+  isActive  Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
