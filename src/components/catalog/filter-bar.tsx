@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { TitleType } from "@prisma/client";
-import { Filter } from "lucide-react";
+import { FiFilter } from "react-icons/fi";
 
 interface FilterOption {
   id: string;
@@ -79,7 +79,7 @@ export function FilterBar({ genres, categories }: FilterBarProps) {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 rounded-sm border border-zinc-700/50 bg-zinc-900/50 px-4 py-2 text-sm text-zinc-300 backdrop-blur-sm transition-all hover:border-zinc-600 hover:text-white"
       >
-        <Filter className="h-4 w-4" />
+        <FiFilter className="h-4 w-4" />
         Filters
         {activeFilters > 0 && (
           <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber text-xs font-medium text-[oklch(0.1_0.005_45)]">

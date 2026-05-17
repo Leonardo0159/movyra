@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Search } from "lucide-react";
+import { FiSearch } from "react-icons/fi";
 
 export function SearchInput() {
   const router = useRouter();
@@ -58,7 +58,7 @@ export function SearchInput() {
           ? "border-amber/40 ring-1 ring-amber/20"
           : "border-zinc-700/50"
       }`}>
-        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+        <FiSearch className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
         <input
           id="catalog-search"
           type="search"

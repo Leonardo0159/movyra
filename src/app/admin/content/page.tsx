@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import { Plus, Search, Pencil } from "lucide-react";
+import { FiPlus, FiSearch, FiEdit2 } from "react-icons/fi";
 
 interface ContentPageProps {
   searchParams: Promise<{ search?: string; page?: string; type?: string }>;
@@ -47,7 +47,7 @@ export default async function ContentPage({ searchParams }: ContentPageProps) {
           href="/admin/content/new"
           className="flex items-center gap-2 rounded-sm bg-amber px-4 py-2 text-sm font-medium uppercase tracking-wider text-[oklch(0.1_0.005_45)] transition-colors hover:bg-amber/90"
         >
-          <Plus className="h-4 w-4" />
+          <FiPlus className="h-4 w-4" />
           Add Title
         </Link>
       </div>
@@ -55,7 +55,7 @@ export default async function ContentPage({ searchParams }: ContentPageProps) {
       {/* Search and filters */}
       <div className="mb-6 flex gap-4">
         <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+          <FiSearch className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
           <form>
             <input
               type="search"
@@ -157,7 +157,7 @@ export default async function ContentPage({ searchParams }: ContentPageProps) {
                       href={`/admin/content/${title.id}`}
                       className="flex items-center gap-1 rounded-sm px-2 py-1 text-xs text-zinc-400 transition-colors hover:text-amber"
                     >
-                      <Pencil className="h-3 w-3" />
+                      <FiEdit2 className="h-3 w-3" />
                       Edit
                     </Link>
                   </div>

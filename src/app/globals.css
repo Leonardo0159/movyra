@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -270,4 +272,93 @@
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
   .stagger-6 { animation-delay: 0.6s; }
+}
+
+/* Slick Carousel Custom Theme - Cinematic */
+.slick-slider {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  overflow: visible !important;
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.slick-slide {
+  height: auto !important;
+  padding: 0 8px;
+}
+
+.slick-slide > div {
+  height: 100%;
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+.slick-prev {
+  left: -20px;
+}
+
+.slick-next {
+  right: -20px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 28px;
+  line-height: 1;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  color: oklch(0.72 0.16 75);
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  opacity: 1;
+  color: oklch(0.8 0.16 75);
+}
+
+.slick-dots {
+  bottom: -30px;
+}
+
+.slick-dots li button:before {
+  font-size: 8px;
+  line-height: 1;
+  color: oklch(0.4 0.01 45);
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.slick-dots li.slick-active button:before {
+  color: oklch(0.72 0.16 75);
+  opacity: 1;
+}
+
+/* Category row specific overrides */
+.category-row .slick-list {
+  padding: 8px 0 !important;
+}
+
+.category-row .slick-slide {
+  padding: 0 6px;
+}
+
+/* Cast carousel specific */
+.cast-carousel .slick-list {
+  padding: 8px 0 !important;
+}
+
+.cast-carousel .slick-slide {
+  padding: 0 10px;
 }

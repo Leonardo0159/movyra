@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { jwtVerify } from "jose";
 import Link from "next/link";
-import { Film, LayoutDashboard, ChevronLeft } from "lucide-react";
+import { FiFilm, FiLayout, FiChevronLeft } from "react-icons/fi";
 import { MovyraLogo } from "@/components/movyra-logo";
 
 interface JWTPayload {
@@ -52,7 +52,7 @@ export default async function AdminLayout({
                 href="/admin/content"
                 className="flex items-center gap-3 rounded-sm px-3 py-2 text-sm text-zinc-400 transition-colors hover:bg-zinc-800/50 hover:text-white"
               >
-                <Film className="h-5 w-5" />
+                <FiFilm className="h-5 w-5" />
                 Content
               </Link>
             </li>
@@ -63,7 +63,7 @@ export default async function AdminLayout({
             href="/catalog"
             className="flex items-center gap-3 rounded-sm px-3 py-2 text-sm text-zinc-400 transition-colors hover:bg-zinc-800/50 hover:text-white"
           >
-            <LayoutDashboard className="h-5 w-5" />
+            <FiLayout className="h-5 w-5" />
             View Site
           </Link>
         </div>
@@ -73,7 +73,7 @@ export default async function AdminLayout({
       <main className="flex-1 overflow-auto">
         <div className="border-b border-zinc-800/50 px-6 py-4">
           <Link href="/admin/content" className="flex items-center gap-1.5 text-sm text-zinc-500 transition-colors hover:text-amber">
-            <ChevronLeft className="h-4 w-4" />
+            <FiChevronLeft className="h-4 w-4" />
             Admin
           </Link>
         </div>

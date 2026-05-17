@@ -3,16 +3,16 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Hls from "hls.js";
 import {
-  Play,
-  Pause,
-  Volume2,
-  VolumeX,
-  Maximize,
-  Minimize,
-  Settings,
-  SkipForward,
-  SkipBack,
-} from "lucide-react";
+  FiPlay,
+  FiPause,
+  FiVolume2,
+  FiVolumeX,
+  FiMaximize,
+  FiMinimize,
+  FiSettings,
+  FiSkipForward,
+  FiSkipBack,
+} from "react-icons/fi";
 
 interface VideoPlayerProps {
   src: string;
@@ -407,7 +407,7 @@ export function VideoPlayer({
               className="rounded-full bg-amber/20 p-6 backdrop-blur-sm transition-all hover:scale-110 hover:bg-amber/30"
               aria-label="Play"
             >
-              <Play className="h-12 w-12 fill-amber text-amber" />
+              <FiPlay className="h-12 w-12 fill-amber text-amber" />
             </button>
           </div>
         )}
@@ -438,7 +438,7 @@ export function VideoPlayer({
                 className="rounded p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
                 aria-label={isPlaying ? "Pause" : "Play"}
               >
-                {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+                {isPlaying ? <FiPause className="h-5 w-5" /> : <FiPlay className="h-5 w-5" />}
               </button>
 
               <button
@@ -446,7 +446,7 @@ export function VideoPlayer({
                 className="rounded p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
                 aria-label="Back 10 seconds"
               >
-                <SkipBack className="h-5 w-5" />
+                <FiSkipBack className="h-5 w-5" />
               </button>
 
               <button
@@ -454,7 +454,7 @@ export function VideoPlayer({
                 className="rounded p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
                 aria-label="Forward 10 seconds"
               >
-                <SkipForward className="h-5 w-5" />
+                <FiSkipForward className="h-5 w-5" />
               </button>
 
               {/* Volume */}
@@ -465,9 +465,9 @@ export function VideoPlayer({
                   aria-label={isMuted ? "Unmute" : "Mute"}
                 >
                   {isMuted || volume === 0 ? (
-                    <VolumeX className="h-5 w-5" />
+                    <FiVolumeX className="h-5 w-5" />
                   ) : (
-                    <Volume2 className="h-5 w-5" />
+                    <FiVolume2 className="h-5 w-5" />
                   )}
                 </button>
                 <input
@@ -506,7 +506,7 @@ export function VideoPlayer({
                   aria-label="Settings"
                   aria-expanded={showSettings}
                 >
-                  <Settings className="h-5 w-5" />
+                  <FiSettings className="h-5 w-5" />
                 </button>
 
                 {showSettings && (
@@ -541,7 +541,7 @@ export function VideoPlayer({
                 className="rounded p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
                 aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
               >
-                {isFullscreen ? <Minimize className="h-5 w-5" /> : <Maximize className="h-5 w-5" />}
+                {isFullscreen ? <FiMinimize className="h-5 w-5" /> : <FiMaximize className="h-5 w-5" />}
               </button>
             </div>
           </div>

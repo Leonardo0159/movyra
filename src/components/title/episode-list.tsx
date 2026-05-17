@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Clock, Play } from "lucide-react";
+import { FiClock, FiPlay } from "react-icons/fi";
 import Link from "next/link";
 import { SeasonGroup } from "@/lib/titles";
 
@@ -67,11 +67,11 @@ export function EpisodeList({ seasons, titleId }: EpisodeListProps) {
               <div className="ml-4 flex items-center gap-3 text-zinc-500">
                 {episode.duration && (
                   <span className="flex items-center gap-1 text-xs">
-                    <Clock className="h-3.5 w-3.5" />
+                    <FiClock className="h-3.5 w-3.5" />
                     {episode.duration}m
                   </span>
                 )}
-                <Play className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
+                <FiPlay className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
               </div>
             </div>
           </Link>

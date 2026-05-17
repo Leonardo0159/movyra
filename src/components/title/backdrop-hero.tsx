@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Play, Clock, Calendar } from "lucide-react";
+import { FiPlay, FiCalendar, FiClock } from "react-icons/fi";
 
 interface BackdropHeroProps {
   backdropUrl: string | null;
@@ -72,13 +72,13 @@ export function BackdropHero({
             <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-zinc-400">
               {releaseYear && (
                 <span className="flex items-center gap-1.5">
-                  <Calendar className="h-4 w-4 text-zinc-600" />
+                  <FiCalendar className="h-4 w-4 text-zinc-600" />
                   {releaseYear}
                 </span>
               )}
               {durationStr && (
                 <span className="flex items-center gap-1.5">
-                  <Clock className="h-4 w-4 text-zinc-600" />
+                  <FiClock className="h-4 w-4 text-zinc-600" />
                   {durationStr}
                 </span>
               )}
@@ -94,7 +94,7 @@ export function BackdropHero({
                 className="group flex items-center gap-2 rounded-sm bg-amber px-8 py-3 text-sm font-medium uppercase tracking-wider text-[oklch(0.1_0.005_45)] transition-all hover:bg-amber/90 hover:shadow-[0_0_30px_rgba(200,155,60,0.3)]"
                 aria-label={`Watch ${title}`}
               >
-                <Play className="h-4 w-4 fill-current transition-transform group-hover:scale-110" />
+                <FiPlay className="h-4 w-4 fill-current transition-transform group-hover:scale-110" />
                 Watch
               </Link>
             </div>

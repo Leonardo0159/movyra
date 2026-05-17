@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { TitleType } from "@prisma/client";
+import { FiFilm, FiTv, FiCamera } from "react-icons/fi";
 
 interface TitleCardProps {
   id: string;
@@ -11,6 +12,12 @@ interface TitleCardProps {
   posterUrl: string | null;
   genres: { name: string }[];
 }
+
+const typeIcons: Record<TitleType, React.ReactNode> = {
+  MOVIE: <FiFilm className="h-3 w-3" />,
+  SERIES: <FiTv className="h-3 w-3" />,
+  DOCUMENTARY: <FiCamera className="h-3 w-3" />,
+};
 
 const typeLabels: Record<TitleType, string> = {
   MOVIE: "Film",
@@ -42,7 +49,8 @@ export function TitleCard({ id, type, title, releaseYear, rating, posterUrl, gen
 
         {/* Type badge */}
         <div className="absolute top-2 left-2">
-          <span className="inline-block rounded-sm bg-black/70 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-zinc-300 backdrop-blur-sm">
+          <span className="inline-flex items-center gap-1 rounded-sm bg-black/70 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-zinc-300 backdrop-blur-sm">
+            {typeIcons[type]}
             {typeLabels[type]}
           </span>
         </div>

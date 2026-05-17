@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { X, Upload, Trash2 } from "lucide-react";
+import { FiX, FiUpload, FiTrash2 } from "react-icons/fi";
 
 interface Genre {
   id: string;
@@ -392,7 +392,7 @@ export function TitleForm({
                   className="rounded p-1 text-zinc-500 transition-colors hover:text-red-400"
                   aria-label={`Remove ${member?.name}`}
                 >
-                  <X className="h-4 w-4" />
+                  <FiX className="h-4 w-4" />
                 </button>
               </div>
             );
@@ -410,7 +410,7 @@ export function TitleForm({
               disabled={isPending}
               className="flex items-center gap-2 rounded-sm border border-red-800/50 bg-red-900/20 px-4 py-2 text-sm font-medium text-red-400 transition-colors hover:bg-red-900/40 disabled:opacity-50"
             >
-              <Trash2 className="h-4 w-4" />
+              <FiTrash2 className="h-4 w-4" />
               Delete
             </button>
           )}
@@ -428,7 +428,7 @@ export function TitleForm({
             disabled={isPending}
             className="flex items-center gap-2 rounded-sm bg-amber px-4 py-2 text-sm font-medium text-[oklch(0.1_0.005_45)] transition-colors hover:bg-amber/90 disabled:opacity-50"
           >
-            <Upload className="h-4 w-4" />
+            <FiUpload className="h-4 w-4" />
             {isPending ? "Saving..." : isEdit ? "Update" : "Create"}
           </button>
         </div>

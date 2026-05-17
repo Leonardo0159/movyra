@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { FiChevronLeft } from "react-icons/fi";
 import { getTitleById, getRelatedTitles, groupEpisodesBySeason } from "@/lib/titles";
 import { BackdropHero } from "@/components/title/backdrop-hero";
 import { CastList } from "@/components/title/cast-list";
@@ -31,7 +31,7 @@ export default async function TitlePage({ params }: TitlePageProps) {
           href="/catalog"
           className="group flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-amber"
         >
-          <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
+          <FiChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
           Back to Catalog
         </Link>
       </div>

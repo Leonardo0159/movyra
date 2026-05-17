@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import { notFound, useRouter } from "next/navigation";
 import Link from "next/link";
 import { VideoPlayer } from "@/components/player/video-player";
-import { Clock, ChevronLeft, ChevronRight } from "lucide-react";
+import { FiClock, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 interface WatchPageProps {
   params: Promise<{ id: string }>;
@@ -207,7 +207,7 @@ export default function WatchPage({ params, searchParams }: WatchPageProps) {
                   className="flex items-center gap-1 rounded-sm border border-zinc-700/50 bg-zinc-900/50 px-3 py-2 text-sm text-zinc-300 backdrop-blur-sm transition-all hover:border-zinc-600 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
                   aria-label="Previous episode"
                 >
-                  <ChevronLeft className="h-4 w-4" />
+                  <FiChevronLeft className="h-4 w-4" />
                 </button>
                 <button
                   onClick={() => navigateEpisode("next")}
@@ -217,7 +217,7 @@ export default function WatchPage({ params, searchParams }: WatchPageProps) {
                   className="flex items-center gap-1 rounded-sm border border-zinc-700/50 bg-zinc-900/50 px-3 py-2 text-sm text-zinc-300 backdrop-blur-sm transition-all hover:border-zinc-600 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
                   aria-label="Next episode"
                 >
-                  <ChevronRight className="h-4 w-4" />
+                  <FiChevronRight className="h-4 w-4" />
                 </button>
               </div>
             )}
@@ -252,7 +252,7 @@ export default function WatchPage({ params, searchParams }: WatchPageProps) {
                         }`}>{episode.name}</h3>
                         {episode.duration && (
                           <span className="flex items-center gap-1 text-xs text-zinc-500">
-                            <Clock className="h-3 w-3" />
+                            <FiClock className="h-3 w-3" />
                             {episode.duration}m
                           </span>
                         )}
@@ -272,7 +272,7 @@ export default function WatchPage({ params, searchParams }: WatchPageProps) {
               href={`/title/${title.id}`}
               className="flex items-center gap-1.5 text-sm text-zinc-500 transition-colors hover:text-amber"
             >
-              <ChevronLeft className="h-4 w-4" />
+              <FiChevronLeft className="h-4 w-4" />
               Back to details
             </Link>
           </div>

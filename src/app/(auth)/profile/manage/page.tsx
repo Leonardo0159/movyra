@@ -14,7 +14,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import Link from "next/link";
-import { ChevronLeft, Plus, Pencil, Trash2 } from "lucide-react";
+import { FiChevronLeft, FiPlus, FiEdit2, FiTrash2 } from "react-icons/fi";
 
 interface Profile {
   id: string;
@@ -152,7 +152,7 @@ export default function ManageProfilesPage() {
               href="/select-profile"
               className="rounded-sm p-2 text-zinc-400 transition-colors hover:text-white"
             >
-              <ChevronLeft className="h-5 w-5" />
+              <FiChevronLeft className="h-5 w-5" />
             </Link>
             <h1 className="font-heading text-2xl uppercase tracking-wider text-white">
               Manage Profiles
@@ -163,7 +163,7 @@ export default function ManageProfilesPage() {
             disabled={profiles.length >= MAX_PROFILES}
             className="bg-amber text-[oklch(0.1_0.005_45)] hover:bg-amber/90 font-heading uppercase tracking-wider"
           >
-            <Plus className="mr-1.5 h-4 w-4" />
+            <FiPlus className="mr-1.5 h-4 w-4" />
             Add
           </Button>
         </div>
@@ -203,7 +203,7 @@ export default function ManageProfilesPage() {
                   className="border-zinc-700/50 text-zinc-400 hover:text-white"
                   onClick={() => handleEditProfile(profile)}
                 >
-                  <Pencil className="h-3.5 w-3.5" />
+                  <FiEdit2 className="h-3.5 w-3.5" />
                 </Button>
                 <Button
                   variant="destructive"
@@ -211,7 +211,7 @@ export default function ManageProfilesPage() {
                   onClick={() => handleDeleteClick(profile)}
                   disabled={profiles.length <= 1}
                 >
-                  <Trash2 className="h-3.5 w-3.5" />
+                  <FiTrash2 className="h-3.5 w-3.5" />
                 </Button>
               </div>
             </div>
