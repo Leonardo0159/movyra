@@ -1,0 +1,29 @@
+schema: spec-driven
+
+context: |
+  Project: Movyra - Streaming platform (Netflix-like) for study
+  Tech stack: Next.js 16.2.6 (App Router), React 19.2.4, Tailwind CSS 4, TypeScript 5, PostgreSQL, Redis
+  API style: RESTful with Next.js API Routes / Server Actions
+  ORM: Prisma or Drizzle
+  Video streaming: HLS with adaptive bitrate (FFmpeg)
+  Testing: No framework configured yet
+  Deployment: Not configured yet
+  We value: clean architecture, accessibility (WCAG 2.1 AA), performance (Lighthouse > 90)
+  Language: Portuguese for docs/comments, English for code/variables/commits
+
+rules:
+  proposal:
+    - Reference existing capabilities before creating new ones
+    - Identify affected agents (video-engineering, frontend-ui, backend-api, devops-infra, realtime)
+  specs:
+    - Use SHALL/MUST for requirements, MAY for optional
+    - Include Given/When/Then scenarios for each requirement
+    - Reference existing patterns before inventing new ones
+  design:
+    - Prefer server components unless interactivity is required
+    - Use Prisma/Drizzle for database schemas
+    - Document API contracts with request/response examples
+  tasks:
+    - Break tasks into atomic, testable units
+    - Each task should be completable in isolation
+    - Include verification steps
