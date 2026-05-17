@@ -24,9 +24,10 @@
     <path d="M58 14L64 30L70 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
     <path d="M82 14L88 24L94 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
     <path d="M88 24L86 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-    <path d="M102 32V14H106C110 14 112 16 112 20C112 24 110 26 106 26H102" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M126 32V22C126 18 128 16 132 16C136 16 138 18 138 22V32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M126 26H138" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M102 32V14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M102 18C106 18 108 20 110 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M118 32V22C118 18 120 16 124 16C128 16 130 18 130 22V32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M118 26H130" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
     <line x1="148" y1="20" x2="280" y2="20" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
     <rect x="152" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
     <rect x="160" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>

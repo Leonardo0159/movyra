@@ -80,10 +80,11 @@ export function MovyraLogo({ className, variant = "full", size = "md" }: MovyraL
         <path d="M82 14L88 24L94 14" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         <path d="M88 24L86 32" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" fill="none" />
         {/* r */}
-        <path d="M102 32V14H106C110 14 112 16 112 20C112 24 110 26 106 26H102" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M102 32V14" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+        <path d="M102 18C106 18 108 20 110 22" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" fill="none" />
         {/* a */}
-        <path d="M126 32V22C126 18 128 16 132 16C136 16 138 18 138 22V32" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <path d="M126 26H138" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M118 32V22C118 18 120 16 124 16C128 16 130 18 130 22V32" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M118 26H130" className="stroke-current" strokeWidth="2.5" strokeLinecap="round" />
 
         {/* Film strip accent line */}
         <line x1="148" y1="20" x2="312" y2="20" className="stroke-current opacity-20" strokeWidth="1" />
