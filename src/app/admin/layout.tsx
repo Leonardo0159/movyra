@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { jwtVerify } from "jose";
 import Link from "next/link";
 import { Film, LayoutDashboard, ChevronLeft } from "lucide-react";
+import { MovyraLogo } from "@/components/movyra-logo";
 
 interface JWTPayload {
   id: string;
@@ -40,8 +41,8 @@ export default async function AdminLayout({
       {/* Sidebar */}
       <aside className="flex w-64 flex-col border-r border-zinc-800/50 bg-zinc-900/30 backdrop-blur-sm">
         <div className="flex h-16 items-center border-b border-zinc-800/50 px-6">
-          <Link href="/admin/content" className="font-heading text-xl uppercase tracking-[0.15em] text-amber">
-            Movyra
+          <Link href="/admin/content" className="text-amber">
+            <MovyraLogo variant="wordmark" size="lg" />
           </Link>
         </div>
         <nav className="flex-1 p-4" aria-label="Admin navigation">

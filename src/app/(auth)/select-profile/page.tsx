@@ -7,6 +7,7 @@ import { AvatarDisplay } from "@/components/avatar-display";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
+import { MovyraLogo } from "@/components/movyra-logo";
 
 interface Profile {
   id: string;
@@ -81,8 +82,8 @@ export default function SelectProfilePage() {
       <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-amber/5 blur-3xl" />
 
       <div className="relative z-10 flex flex-col items-center">
-        <Link href="/" className="mb-10 font-heading text-4xl uppercase tracking-[0.2em] text-amber">
-          Movyra
+        <Link href="/" className="mb-10 inline-block text-amber">
+          <MovyraLogo variant="full" size="xl" />
         </Link>
 
         <h1 className="mb-8 font-heading text-3xl uppercase tracking-wider text-white">

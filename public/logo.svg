@@ -1,0 +1,48 @@
+<svg viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Icon -->
+  <g transform="translate(8, 8)">
+    <rect x="4" y="4" width="56" height="56" rx="4" fill="currentColor" fill-opacity="0.1"/>
+    <rect x="4" y="4" width="56" height="56" rx="4" stroke="currentColor" stroke-width="2"/>
+    <rect x="10" y="8" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+    <rect x="10" y="18" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+    <rect x="10" y="28" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+    <rect x="10" y="38" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+    <rect x="10" y="48" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+    <rect x="50" y="8" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+    <rect x="50" y="18" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+    <rect x="50" y="28" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+    <rect x="50" y="38" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+    <rect x="50" y="48" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+    <path d="M18 44V20L26 32L32 24L38 32L46 20V44" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M32 24V44" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(88, 24)">
+    <path d="M8 32V8L16 20L20 14L24 20L32 8V32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <ellipse cx="44" cy="22" rx="7" ry="8" stroke="currentColor" stroke-width="2.5" fill="none"/>
+    <path d="M58 14L64 30L70 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M82 14L88 24L94 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M88 24L86 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M102 32V14H106C110 14 112 16 112 20C112 24 110 26 106 26H102" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M126 32V22C126 18 128 16 132 16C136 16 138 18 138 22V32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M126 26H138" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="148" y1="20" x2="280" y2="20" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+    <rect x="152" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="160" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="168" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="176" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="184" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="192" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="200" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="208" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="216" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="224" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="232" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="240" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="248" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="256" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="264" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+    <rect x="272" y="17" width="3" height="6" rx="0.5" fill="currentColor" fill-opacity="0.3"/>
+  </g>
+</svg>

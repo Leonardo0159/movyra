@@ -1,0 +1,16 @@
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4" y="4" width="56" height="56" rx="4" fill="currentColor" fill-opacity="0.1"/>
+  <rect x="4" y="4" width="56" height="56" rx="4" stroke="currentColor" stroke-width="2"/>
+  <rect x="10" y="8" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+  <rect x="10" y="18" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+  <rect x="10" y="28" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+  <rect x="10" y="38" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+  <rect x="10" y="48" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+  <rect x="50" y="8" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+  <rect x="50" y="18" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+  <rect x="50" y="28" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+  <rect x="50" y="38" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+  <rect x="50" y="48" width="4" height="6" rx="1" fill="currentColor" fill-opacity="0.4"/>
+  <path d="M18 44V20L26 32L32 24L38 32L46 20V44" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M32 24V44" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

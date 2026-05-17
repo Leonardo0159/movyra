@@ -7,6 +7,7 @@ import { loginUser } from "@/lib/auth/actions";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { MovyraLogo } from "@/components/movyra-logo";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -39,8 +40,8 @@ export default function LoginPage() {
       <div className="relative z-10 w-full max-w-md">
         {/* Logo */}
         <div className="mb-8 text-center">
-          <Link href="/" className="font-heading text-4xl uppercase tracking-[0.2em] text-amber">
-            Movyra
+          <Link href="/" className="inline-block text-amber">
+            <MovyraLogo variant="wordmark" size="xl" />
           </Link>
         </div>
 
