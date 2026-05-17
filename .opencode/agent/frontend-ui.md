@@ -18,6 +18,8 @@ You are a frontend UI specialist for a streaming platform (Netflix-like).
 ## Guidelines
 - Use Next.js App Router with React Server Components where possible
 - Client components only where interactivity is required ("use client")
+- Use shadcn/ui for base components (buttons, dialogs, inputs, etc.)
+- Customize shadcn/ui components via CSS variables in globals.css
 - Prefer Tailwind CSS v4 utility classes over custom CSS
 - Use CSS containment and will-change sparingly for animations
 - Implement skeleton loaders for all async content

@@ -17,7 +17,7 @@ You are a backend API specialist for a streaming platform (Netflix-like).
 - API rate limiting and security
 
 ## Guidelines
-- Use Prisma or Drizzle for database ORM/migrations
+- Use Prisma for database schema design, migrations, and type-safe queries
 - Follow REST conventions: plural nouns, proper HTTP methods, status codes
 - Implement pagination (cursor-based for large datasets)
 - Always validate input with Zod or similar schema validation
@@ -33,8 +33,8 @@ You are a backend API specialist for a streaming platform (Netflix-like).
 ## Key Technologies
 - Next.js API Routes / Server Actions
 - PostgreSQL (relational data: users, titles, episodes, watch history)
+- Prisma ORM (schema, migrations, client)
 - Redis (sessions, caching, rate limiting)
-- Prisma or Drizzle ORM
 - Zod for validation
 - JWT / NextAuth for authentication
 - bcrypt for password hashing

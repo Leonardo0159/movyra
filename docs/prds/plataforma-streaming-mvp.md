@@ -32,7 +32,7 @@ Plataforma de streaming de vídeo sob demanda (VOD) para estudo, inspirada em Ne
 ## Requirements
 
 ### Funcionais
-- **FR-1**: Autenticação (registro, login, logout, recuperação de senha)
+- **FR-1**: Autenticação (registro, login, logout)
 - **FR-2**: Gestão de perfis (criar, editar, deletar, avatar)
 - **FR-3**: Catálogo com categorias (filmes, séries, documentários), filtros e busca
 - **FR-4**: Página de detalhes do título (sinopse, elenco, duração, classificação, episódios para séries)
@@ -59,11 +59,14 @@ Plataforma de streaming de vídeo sob demanda (VOD) para estudo, inspirada em Ne
 - Lighthouse score > 90 em performance e acessibilidade
 
 ## Dependencies
+- **UI Component Library**: shadcn/ui + Tailwind CSS 4 + Radix UI primitives
+- **ORM**: Prisma (type-safe database client, migrations, seeding)
+- **Monitoring**: Sentry (error tracking, performance monitoring, release health)
 - **Storage de vídeo**: AWS S3, Cloudflare R2 ou similar
 - **Encoding/Transcoding**: FFmpeg (self-hosted) ou serviço como AWS MediaConvert, Mux, ou Cloudflare Stream
 - **CDN**: CloudFront, Cloudflare ou equivalente
 - **Player de vídeo**: Video.js, Plyr, ou hls.js
-- **Autenticação**: JWT com bcrypt ou NextAuth
+- **Autenticação**: JWT com bcrypt ou NextAuth (sem serviço de e-mail no MVP)
 - **Banco de dados**: PostgreSQL (relacional para catálogo) + Redis (cache/sessões)
 - **Busca**: PostgreSQL full-text search ou Elasticsearch/Meilisearch
 
