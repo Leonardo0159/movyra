@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bebas_Neue, Lora, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AuthInitializer } from "@/components/auth-initializer";
+import { ToastProvider } from "@/components/ui/toast";
 import "./globals.css";
 
 const bebas = Bebas_Neue({
@@ -40,7 +41,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AuthInitializer>
-            {children}
+            <ToastProvider>
+              {children}
+            </ToastProvider>
           </AuthInitializer>
         </ThemeProvider>
       </body>

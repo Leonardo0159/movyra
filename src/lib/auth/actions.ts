@@ -85,6 +85,7 @@ export async function registerUser(
     const tokenPayload: JWTPayload = {
       userId: user.id,
       email: user.email,
+      role: user.role,
     };
 
     const { accessToken, refreshToken } = generateTokenPair(tokenPayload);
@@ -129,6 +130,7 @@ export async function loginUser(
     const tokenPayload: JWTPayload = {
       userId: user.id,
       email: user.email,
+      role: user.role,
     };
 
     const { accessToken, refreshToken } = generateTokenPair(tokenPayload);
@@ -190,9 +192,21 @@ export async function refreshToken(): Promise<boolean> {
 
   await blacklistToken(refreshTokenValue, parseJwtExpiry(env.JWT_REFRESH_EXPIRES_IN));
 
+  const user = await prisma.user.findUnique({
+    where: { id: decoded.userId },
+    select: { role: true },
+  });
+
+  if (!user) {
+    cookieStore.delete(ACCESS_TOKEN_COOKIE);
+    cookieStore.delete(REFRESH_TOKEN_COOKIE);
+    return false;
+  }
+
   const tokenPayload: JWTPayload = {
     userId: decoded.userId,
     email: decoded.email,
+    role: user.role,
   };
 
   const { accessToken, refreshToken: newRefreshToken } = generateTokenPair(tokenPayload);

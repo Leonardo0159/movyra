@@ -2,8 +2,9 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { jwtVerify } from "jose";
 import Link from "next/link";
-import { FiFilm, FiLayout, FiChevronLeft } from "react-icons/fi";
+import { FiFilm, FiLayout, FiChevronLeft, FiUpload } from "react-icons/fi";
 import { MovyraLogo } from "@/components/movyra-logo";
+import { env } from "@/lib/env";
 
 interface JWTPayload {
   id: string;
@@ -17,7 +18,7 @@ async function verifyAdmin(): Promise<boolean> {
   if (!accessToken) return false;
 
   try {
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
+    const secret = new TextEncoder().encode(env.JWT_SECRET);
     const { payload } = await jwtVerify(accessToken, secret);
     return (payload as unknown as JWTPayload).role === "ADMIN";
   } catch {
@@ -54,6 +55,15 @@ export default async function AdminLayout({
               >
                 <FiFilm className="h-5 w-5" />
                 Content
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/admin/movies/upload"
+                className="flex items-center gap-3 rounded-sm px-3 py-2 text-sm text-zinc-400 transition-colors hover:bg-zinc-800/50 hover:text-white"
+              >
+                <FiUpload className="h-5 w-5" />
+                Upload Movie
               </Link>
             </li>
           </ul>
