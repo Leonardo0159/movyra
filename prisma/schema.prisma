@@ -13,6 +13,7 @@ model User {
   id        String   @id @default(uuid())
   email     String   @unique
   name      String?
+  role      UserRole @default(USER)
   // SECURITY: MUST be hashed with bcrypt/argon2 before storage. Never store plain text passwords.
   password  String
   createdAt DateTime @default(now())
@@ -23,11 +24,20 @@ model User {
   @@map("users")
 }
 
+enum UserRole {
+  USER
+  ADMIN
+
+  @@map("user_roles")
+}
+
 model Profile {
   id        String   @id @default(uuid())
   name      String
-  avatarUrl String?
+  avatarKey String?  // Key for predefined avatar SVG (e.g., "avatar-1" to "avatar-6")
+  avatarUrl String?  // Custom avatar URL (optional)
   userId    String
+  isActive  Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -38,38 +48,151 @@ model Profile {
 }
 
 model Title {
-  id          String   @id @default(uuid())
-  type        TitleType
-  title       String
-  description String?
-  releaseYear Int?
-  rating      String?
-  duration    Int?     // in minutes for movies
-  thumbnailUrl String?
-  videoUrl    String?  // HLS manifest URL
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           String        @id @default(uuid())
+  type         TitleType
+  title        String
+  synopsis     String?
+  releaseYear  Int?
+  rating       String?
+  duration     Int?          // in minutes for movies
+  posterUrl    String?
+  backdropUrl  String?
+  status       TitleStatus   @default(DRAFT)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
 
-  episodes Episode[]
+  episodes     Episode[]
+  categories   TitleCategory[]
+  genres       TitleGenre[]
+  castMembers  TitleCastMember[]
+  videoVersions VideoVersion[]
 
   @@map("titles")
 }
 
+enum TitleType {
+  MOVIE
+  SERIES
+  DOCUMENTARY
+
+  @@map("title_types")
+}
+
+enum TitleStatus {
+  DRAFT
+  PROCESSING
+  PUBLISHED
+  ARCHIVED
+
+  @@map("title_statuses")
+}
+
 model Episode {
-  id          String   @id @default(uuid())
-  titleId     String
-  seasonNumber Int
+  id            String   @id @default(uuid())
+  titleId       String
+  seasonNumber  Int
   episodeNumber Int
-  name        String
-  description String?
-  duration    Int?     // in minutes
-  videoUrl    String?  // HLS manifest URL
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  name          String
+  synopsis      String?
+  duration      Int?     // in minutes
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
-  title Title @relation(fields: [titleId], references: [id], onDelete: Cascade)
+  title         Title          @relation(fields: [titleId], references: [id], onDelete: Cascade)
+  videoVersions VideoVersion[]
 
+  @@unique([titleId, seasonNumber, episodeNumber])
   @@map("episodes")
+}
+
+model Category {
+  id    String @id @default(uuid())
+  name  String @unique
+  slug  String @unique
+
+  titles TitleCategory[]
+
+  @@map("categories")
+}
+
+model Genre {
+  id    String @id @default(uuid())
+  name  String @unique
+  slug  String @unique
+
+  titles TitleGenre[]
+
+  @@map("genres")
+}
+
+model CastMember {
+  id       String   @id @default(uuid())
+  name     String   @unique
+  role     String?  // e.g., "Actor", "Director", "Producer"
+  imageUrl String?
+
+  titles TitleCastMember[]
+
+  @@map("cast_members")
+}
+
+model VideoVersion {
+  id            String   @id @default(uuid())
+  titleId       String?
+  episodeId     String?
+  resolution    String   // e.g., "1080p", "720p", "480p", "360p"
+  bitrate       Int?     // in kbps
+  hlsManifestUrl String?
+  storageKey    String?  // R2 storage key
+  duration      Int?     // in seconds
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  title   Title?    @relation(fields: [titleId], references: [id], onDelete: Cascade)
+  episode Episode?  @relation(fields: [episodeId], references: [id], onDelete: Cascade)
+
+  @@map("video_versions")
+}
+
+model TitleCategory {
+  id         String   @id @default(uuid())
+  titleId    String
+  categoryId String
+  createdAt  DateTime @default(now())
+
+  title    Title    @relation(fields: [titleId], references: [id], onDelete: Cascade)
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([titleId, categoryId])
+  @@map("title_categories")
+}
+
+model TitleGenre {
+  id      String   @id @default(uuid())
+  titleId String
+  genreId String
+  createdAt DateTime @default(now())
+
+  title Title  @relation(fields: [titleId], references: [id], onDelete: Cascade)
+  genre Genre  @relation(fields: [genreId], references: [id], onDelete: Cascade)
+
+  @@unique([titleId, genreId])
+  @@map("title_genres")
+}
+
+model TitleCastMember {
+  id           String   @id @default(uuid())
+  titleId      String
+  castMemberId String
+  characterName String?
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+
+  title      Title      @relation(fields: [titleId], references: [id], onDelete: Cascade)
+  castMember CastMember @relation(fields: [castMemberId], references: [id], onDelete: Cascade)
+
+  @@unique([titleId, castMemberId])
+  @@map("title_cast_members")
 }
 
 model WatchHistory {
@@ -83,11 +206,6 @@ model WatchHistory {
 
   profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
+  @@unique([profileId, titleId, episodeId])
   @@map("watch_history")
-}
-
-enum TitleType {
-  MOVIE
-  SERIES
-  DOCUMENTARY
 }
