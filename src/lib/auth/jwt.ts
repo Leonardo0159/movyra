@@ -4,6 +4,7 @@ import { env } from "../env";
 export interface JWTPayload {
   userId: string;
   email: string;
+  role: string;
 }
 
 export interface TokenPair {

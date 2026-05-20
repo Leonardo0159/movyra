@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
+import { env } from "@/lib/env";
 
 interface JWTPayload {
   id: string;
@@ -14,7 +15,7 @@ export async function verifyAdminToken(request: NextRequest): Promise<{ userId: 
   }
 
   try {
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
+    const secret = new TextEncoder().encode(env.JWT_SECRET);
     const { payload } = await jwtVerify(accessToken, secret);
     const { id, role } = payload as unknown as JWTPayload;
 
